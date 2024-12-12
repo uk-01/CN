@@ -78,6 +78,13 @@ BEGIN{
     }
 }
 END{
+printf("Total no. of %s packets dropped due to congestion=%d\n",$5,drop);
+}
+
+#EXECUTION
+#ns lab2.tcl
+#awk -f lab2.awk lab2.tr
+#vi lab2.tr
   printf("Total no. of %s packets dropped due to congestion=%d\n",$5,drop);
 }
 
