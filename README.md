@@ -1,4 +1,5 @@
 # CN
+## $ns at 3.0 "finish"
 set ns [new Simulator]
 set nf [open lab2.nam w]
 $ns namtrace-all $nf
