@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Times</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px;
+            gap: 20px;
+        }
+        .article {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(30% - 20px);
+            padding: 15px;
+        }
+        .article img {
+            width: 100%;
+            border-radius: 8px 8px 0 0;
+        }
+        .article h2 {
+            margin: 15px 0;
+            font-size: 1.5rem;
+        }
+        .article p {
+            color: #555;
+            line-height: 1.6;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Daily Times</h1>
+    <p>Your trusted source for news</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">World</a>
+    <a href="#">Politics</a>
+    <a href="#">Technology</a>
+    <a href="#">Sports</a>
+    <a href="#">Entertainment</a>
+</nav>
+
+<div class="main-content">
+    <div class="article">
+        <img src="https://via.placeholder.com/300" alt="News Image">
+        <h2>Breaking News: Market Hits Record High</h2>
+        <p>The stock market surged today, reaching an all-time high, fueled by optimism about the economy...</p>
+    </div>
+    <div class="article">
+        <img src="https://via.placeholder.com/300" alt="News Image">
+        <h2>Global Headlines: Leaders Meet at Summit</h2>
+        <p>World leaders gather to discuss pressing global challenges including climate change and economic recovery...</p>
+    </div>
+    <div class="article">
+        <img src="https://via.placeholder.com/300" alt="News Image">
+        <h2>Sports Update: Championship Finals Tonight</h2>
+        <p>The championship finals are set to kick off tonight with fans eagerly anticipating the showdown...</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Daily Times. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<head>
+	
+	<title>Simple Calculator using Javascript</title>
+	<link href="calci2.css" rel="stylesheet">
+</head>
+<body>
+	<div class="wrapper">
+		<h2>Simple Calculator</h2><input id="num-one" name="num-one" type="text"> <input id="num-two" name="num-two" type="text"><br>
+		<br>
+		<input checked id="box1" name="sign-area" type="radio" value="add"><b>+</b>
+         <input id="box2" name="sign-area" type="radio" value="subtract"><b>-</b> 
+         <input id="box3" name="sign-area" type="radio" value="multiply"><b>*</b>
+          <input id="box4" name="sign-area" type="radio" value="divide"><b>/</b>
+          <input id="box5" name="sign-area" type="radio" value="sqrt"><b>sqrt</b>
+          <br>
+		<br>
+		<button onclick="outcome()" type="button">calculate</button>
+		<h1 id="resultArea"></h1>
+	</div>
+    <style>
+        body {
+	background: #EE4477;
+}
+.wrapper {
+	width: 400px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #262626;
+	padding: 50px;
+	color: #fff;
+	text-align: center;
+}
+.wrapper h2 {
+	text-transform: uppercase;
+	font-family: poppins;
+	margin-bottom: 10%;
+}
+input[type="text"] {
+	height: 40px;
+}
+input[type="text"] {
+	font-size: 24px;
+}
+button {
+	background: #EE4477;
+	border: none;
+	color: #fff;
+	display: inline-block;
+	padding: 10px 25px;
+	font-size: 18px;
+	text-transform: uppercase;
+	font-family: poppins;
+	letter-spacing: 2px;
+	font-weight: bold;
+}
+input[type="radio"] {
+	width: 20px;
+	height: 20px;
+}
+b {
+	font-size: 30px;
+}
+
+    </style>
+	 
+	<script>
+	       function outcome() { 
+	           var x = Number(document.getElementById("num-one").value);
+	           var y = Number(document.getElementById("num-two").value);
+	           var z = 0;
+	           
+	           if (document.getElementById("box1").checked){
+	               z = x + y;
+	           }
+	           else if (document.getElementById("box2").checked){ 
+	               z = x - y;
+	           }
+	           else if (document.getElementById("box3").checked){
+	               z = x * y;
+	           }
+               else if(document.getElementById("box5").checked){
+                    z= Math.sqrt(x);
+               }
+	           else{
+	               z = x / y;
+	           }
+	           document.getElementById("resultArea").innerHTML = " Result : "+ String(z);    
+	       } 
+	</script>
+</body>
+</html>

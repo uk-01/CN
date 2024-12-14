@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="reg.css" rel="stylesheet">
+        <title>
+            Reg-Form
+        </title>
+        <body>
+            <div class="container">
+                <div class="title">Registration</div>
+                <div class="content">
+                    <form action="#">
+                        <div class="user-details">
+                            <div class="input-box">
+                                <span class="details">Full Name</span>
+                                <input type="text" name="full-name" placeholder="Enter your name" id="fname" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">User ID</span>
+                                <input type="text" name="full-name" placeholder="Enter your user id" id="fname" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Email ID</span>
+                                <input type="text" name="full-name" placeholder="Enter your email id" id="fname" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Phone number</span>
+                                <input type="text" name="full-name" placeholder="Enter your phone number" id="fname" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Password</span>
+                                <input type="text" name="full-name" placeholder="Enter your password" id="fname" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Confirm Password</span>
+                                <input type="text" name="full-name" placeholder="Enter your name" id="fname" required>
+                            </div>   <!-- jbdj -->
+                        </div>
+                           <!-- jbdj -->
+
+
+                        <div class="gender-details">
+                            <span class="gender-title">Gender</span>
+                            
+                            <input type="radio" name="gender" id="dot-1">Male
+                            <input type="radio" name="gender" id="dot-1">Female
+                            <input type="radio" name="gender" id="dot-1">Prefer not to say
+
+                        </div>
+                        <div class="category">
+                            <label for="dot-1" >
+                                <span class="dot one"></span>
+                                
+                            </label>
+                        </div>
+                        <div class="button" >
+                            <input type="submit" value="Register" >
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </body>
+    </head>
+</html>
+*{
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background:linear-gradient(to right, rgb(220, 113, 227),rgb(182, 164, 206));
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+.container{
+    max-width: 700px;
+    background-color: white;
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+.container .title{
+    font-size: 25px;
+    font-weight: bold;
+    position: relative;
+}
+.container .title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background:linear-gradient(to right, rgb(220, 113, 227),rgb(182, 164, 206));
+}
+.container form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+.container form .input-box{
+    width: calc(100%/2 - 20px); 
+    margin: 20px 0 12px 0;
+    
+    
+}
+.user-details .input-box .details{
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.user-details .input-box input{
+    height: 45px;
+    font-size: 18px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    padding-left: 8px;
+}
+input[type="submit"]{
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: rgb(226, 202, 232);
+    border: none;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    padding: 10px 5px;
+
+}
+
+    
+    
+
+
