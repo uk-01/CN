@@ -1,0 +1,54 @@
+## 5
+import numpy as np
+import matplotlib.pyplot as plt
+from collections import Counter
+
+# Step 1: Generate 100 random values in [0,1]
+data = np.random.rand(100)
+
+# Step 2: Label the first 50
+labels = ["Class1" if x <= 0.5 else "Class2" for x in data[:50]]
+
+# Step 3: Define distance and k-NN function
+def euclidean_distance(a, b):
+    return abs(a - b)
+def knn_classifier(train_data, train_labels, test_point, k):
+    distances = []
+    for i in range(len(train_data)):
+        dist = euclidean_distance(test_point, train_data[i])
+        distances.append((dist, train_labels[i]))
+
+    distances.sort(key=lambda x: x[0])
+    k_labels = [label for _, label in distances[:k]]
+    return Counter(k_labels).most_common(1)[0][0]
+
+# Step 4: Prepare training and testing data
+train_data = data[:50]
+train_labels = labels
+test_data = data[50:]
+k_values = [1, 2, 3, 4, 5, 20, 30]
+
+# Step 5: Run classification
+for k in k_values:
+    print(f"\n--- Results for k = {k} ---")
+    predictions = []
+    for i, test_point in enumerate(test_data):
+        result = knn_classifier(train_data, train_labels, test_point, k)
+        predictions.append(result)
+        print(f"x{i+51} = {test_point:.4f} → {result}")
+ # Step 6: Plot results
+    class1 = [test_data[i] for i in range(50) if predictions[i] == "Class1"]
+    class2 = [test_data[i] for i in range(50) if predictions[i] == "Class2"]
+
+    plt.figure(figsize=(8, 5))
+    plt.scatter(train_data, [0]*50,
+                c=["blue" if l == "Class1" else "red" for l in train_labels],
+                label="Training Data", marker='o')
+    plt.scatter(class1, [1]*len(class1), c='blue', label="Class1 (Test)", marker='x')
+    plt.scatter(class2, [1]*len(class2), c='red', label="Class2 (Test)", marker='x')
+    plt.title(f"k-NN Classification (k={k})")
+    plt.xlabel("Value")
+    # plt.yticks([0, 1], ["Train" "Test"])
+    plt.legend()
+    plt.grid()
+    plt.show()

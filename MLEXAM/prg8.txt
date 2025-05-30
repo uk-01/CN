@@ -1,0 +1,28 @@
+## 8
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.metrics import accuracy_score
+
+data = load_breast_cancer()
+X, y = data.data, data.target
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+model = DecisionTreeClassifier(random_state=0)
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+print(f"Accuracy: {accuracy_score(y_test, y_pred) * 100:.2f}%")
+
+# Predicting new sample
+new_sample = X_test[0].reshape(1, -1)
+pred = model.predict(new_sample)[0]
+print("Predicted Class:", "Benign" if pred == 1 else "Malignant")
+
+# Plotting the tree
+plt.figure(figsize=(12, 8))
+plot_tree(model, filled=True, feature_names=data.feature_names, class_names=data.target_names)
+plt.title("Decision Tree - Breast Cancer Dataset")
+plt.show()

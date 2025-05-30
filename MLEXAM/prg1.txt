@@ -1,0 +1,23 @@
+import pandas as pd, numpy as np, seaborn as sns, matplotlib.pyplot as plt
+from sklearn.datasets import fetch_california_housing
+
+df = fetch_california_housing(as_frame=True).frame
+num_cols = df.select_dtypes(include=[np.number]).columns
+
+# Histograms
+for col in num_cols:
+    sns.histplot(df[col], kde=True, bins=30)
+    plt.title(f'Distribution of {col}'); plt.show()
+
+# Box plots
+for col in num_cols:
+    sns.boxplot(x=df[col])
+    plt.title(f'Box Plot of {col}'); plt.show()
+
+# Outlier detection using IQR
+print("Outliers Detected (IQR Method):\n")
+for col in num_cols:
+    q1, q3 = df[col].quantile([0.25, 0.75])
+    iqr = q3 - q1
+    outliers = df[(df[col] < q1 - 1.5 * iqr) | (df[col] > q3 + 1.5 * iqr)]
+    print(f"{col}: {len(outliers)} outliers")

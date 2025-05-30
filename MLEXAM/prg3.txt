@@ -1,0 +1,17 @@
+import numpy as np, pandas as pd, matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+from sklearn.decomposition import PCA
+
+iris = load_iris()
+X, y = iris.data, iris.target
+X_reduced = PCA(n_components=2).fit_transform(X)
+
+for i, c in enumerate('rgb'):
+    plt.scatter(X_reduced[y == i, 0], X_reduced[y == i, 1], label=iris.target_names[i], color=c)
+
+plt.title('PCA on Iris Dataset')
+plt.xlabel('PC 1')
+plt.ylabel('PC 2')
+plt.legend()
+plt.grid()
+plt.show()

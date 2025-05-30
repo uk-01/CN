@@ -1,0 +1,14 @@
+import pandas as pd, numpy as np, seaborn as sns, matplotlib.pyplot as plt
+from sklearn.datasets import fetch_california_housing
+
+df = fetch_california_housing(as_frame=True).frame
+corr = df.corr()
+
+# Heatmap for correlation matrix
+sns.heatmap(corr, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
+plt.title('Correlation Matrix'); plt.show()
+
+# Pair plot to visualize relationships
+sns.pairplot(df, diag_kind='kde', plot_kws={'alpha': 0.5})
+plt.suptitle('Pair Plot of California Housing Features', y=1.02)
+plt.show()

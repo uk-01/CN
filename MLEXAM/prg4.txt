@@ -1,0 +1,33 @@
+import pandas as pd
+
+def find_s_algorithm(file_path):
+    data = pd.read_csv(file_path)
+    hypo = ['?'] * (len(data.columns) - 1)
+
+    for _, row in data.iterrows():
+        if row.iloc[-1] == 'Yes':
+            for i in range(len(hypo)):
+                if hypo[i] == '?' or hypo[i] == row[i]:
+                    hypo[i] = row[i]
+                else:
+                    hypo[i] = '?'
+    # Consistency check
+    for _, row in data.iterrows():
+        pred = 'Yes'
+        for i in range(len(hypo)):
+            if hypo[i] != '?' and hypo[i] != row[i]:
+                pred = 'No'
+                break
+        if pred != row.iloc[-1]:
+            return None  # inconsistent, return None
+
+    return hypo  # consistent, return hypothesis
+
+file_path = 'book1.csv'
+hypothesis = find_s_algorithm(file_path)
+
+if hypothesis is None:
+    print("Hypothesis is not consistent")
+else:
+    print("Hypothesis is consistent")
+print("Final hypothesis:",hypothesis)
